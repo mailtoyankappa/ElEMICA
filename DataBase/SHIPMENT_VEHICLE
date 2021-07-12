@@ -1,0 +1,30 @@
+CREATE SEQUENCE shipment_details_seq_gen START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE SHIPMENT_DETAILS(
+                                 shipment_id NUMBER DEFAULT shipment_details_seq_gen.NEXTVAL,
+                                 shipment_name VARCHAR2 (36),
+                                 weight NUMBER,
+                                 CONSTRAINT PK_shipment_id PRIMARY KEY (shipment_id)
+);
+
+
+CREATE SEQUENCE vehicle_details_seq_gen START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE VEHICLE_DETAILS(
+                                vehicle_id NUMBER DEFAULT vehicle_details_seq_gen.NEXTVAL,
+                                vehicle_name VARCHAR2 (36),
+                                weightCapacity NUMBER,
+                                CONSTRAINT PK_vehicle_id PRIMARY KEY (vehicle_id)
+);
+
+CREATE SEQUENCE tariff_details_seq_gen START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE tariff_data(
+                                tariff_id NUMBER DEFAULT tariff_details_seq_gen.NEXTVAL,
+                                shipment_name VARCHAR2 (36),
+                                rate_per_kg NUMBER,
+                                discount NUMBER,
+                                applicable_vehicle VARCHAR2(36),
+                                cost NUMBER,
+                                CONSTRAINT PK_tariff_id PRIMARY KEY (tariff_id)
+);
